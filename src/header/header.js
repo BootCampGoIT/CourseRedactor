@@ -50,7 +50,6 @@ export const createHeader = () => {
     if (e.target === e.currentTarget) return;
     // 5. при клике на элемент устанавливать активный класс на элементе, при этом убирать активный с ранее выбранного элемента (элемента на котором на текущий момент установлен активный класс ). При этом в функцию передается ссылка на элемент на котором произошло таргетирование (targetElement)
     setActiveLink(e.target);
-    console.log(e.target.dataset.navlink);
     if (e.target.dataset.navlink === "/home") createHomePage();
     if (e.target.dataset.navlink === "/about") createAboutPage();
     if (e.target.dataset.navlink === "/signup")
