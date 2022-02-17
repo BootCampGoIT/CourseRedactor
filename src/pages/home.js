@@ -1,3 +1,4 @@
+import { getHomePageValue } from "../languages/methods.js";
 import { refs } from "../refs/index.js";
 
 const cars = [
@@ -38,18 +39,16 @@ const createMarkup = (cars) => {
   carList.innerHTML = cars
     .map(
       (car) => `
-  <li class="carListItem">
-    <p>Name:${car.name}</p>
-    <p>Price:${car.price}</p>
-   </li>`
+      <li class="carListItem">
+        <p>Name:${car.name}</p>
+        <p>Price:${car.price}</p>
+      </li>`
     )
     .join("");
 };
 
 const getFilteredList = (e) => {
   const filter = e.target.value;
-  console.log(filter);
-
   const list = cars.filter(
     (car) =>
       car.name.toLowerCase().includes(filter.toLowerCase()) ||
@@ -61,8 +60,8 @@ const getFilteredList = (e) => {
 export const createHomePage = () => {
   refs.main.innerHTML = `
   <div class='homepage'>
-    <h2>Home page</h2> 
-    <label>Filter: 
+    <h2>${getHomePageValue("title")}</h2> 
+    <label>${getHomePageValue("filter")}: 
     <input type="text" class="carFilter"/>
     </label>
     <ul class="carList"></ul>
